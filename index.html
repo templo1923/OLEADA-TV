@@ -163,21 +163,19 @@
     width: 100%;
     height: 100vh;
     overflow-y: auto;
-    /* Opcional si hay mucho contenido */
     background: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: center;
-    /* align-items: center; <-- ESTE ERA EL PROBLEMA */
-    align-items: flex-start; /* <-- CORRECCIÓN 1: Alinea arriba para ver la "X" */
-    padding: 20px; /* <-- Añadido padding para que no se pegue al borde */
+    align-items: flex-start;
+    padding: 20px;
     z-index: 9999;
   }
 
   .popup-content {
     width: 90%;
-    max-width: 900px; /* Mantiene el ancho máximo */
+    max-width: 900px;
     background: white;
-    padding: 15px; /* <-- CORRECCIÓN 2: Menos padding para hacerlo más compacto */
+    padding: 15px;
     display: flex;
     justify-content: space-around;
     position: relative;
@@ -187,9 +185,9 @@
 
   .popup-content .section {
     width: 32%;
-    padding: 15px; /* <-- CORRECCIÓN 2: Menos padding */
+    padding: 15px;
     text-align: left;
-    border-right: 1px solid #ccc; /* <-- Lo he puesto más suave (gris) */
+    border-right: 1px solid #ccc;
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
@@ -201,40 +199,48 @@
 
   .popup-content h2 {
     margin-bottom: 10px;
-    font-size: 16px; /* <-- CORRECCIÓN 2: Título más pequeño */
+    font-size: 16px;
     text-align: center;
-    min-height: 32px; /* <-- Añadido: Da espacio uniforme a los títulos de 1 o 2 líneas */
+    min-height: 32px;
   }
 
   .popup-content p {
-    font-size: 13px; /* <-- CORRECCIÓN 2: Texto más pequeño */
+    font-size: 13px;
   }
 
   .popup-content img {
-    height: 60px; /* <-- CORRECCIÓN 2: Logos mucho más pequeños */
+    height: 60px;
     width: auto;
     max-width: 100%;
     object-fit: contain;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    margin-bottom: 10px; /* <-- Menos espacio */
+    margin-bottom: 10px;
   }
+
+  /* --- INICIO DE LA CORRECCIÓN --- */
   
-  /* Esto alinea los botones al fondo */
-  .popup-content .section .btn:first-of-type {
-    margin-top: auto;
+  /* 1. ESTA ES LA NUEVA REGLA (para el div que agrupa los párrafos) */
+  .popup-content .features {
+    flex-grow: 1; /* Esto "empuja" los botones al fondo */
+    margin-top: 10px; /* Espacio después del título */
   }
+
+  /* 2. LA REGLA ANTIGUA (margin-top: auto) HA SIDO BORRADA */
+  /* Ya no existe la regla .popup-content .section .btn:first-of-type */
+
+  /* --- FIN DE LA CORRECCIÓN --- */
 
   .popup-content .btn {
     display: inline-block;
-    margin-top: 8px; /* <-- Menos espacio entre botones */
-    padding: 8px 12px; /* <-- Botón más pequeño */
+    margin-top: 8px;
+    padding: 8px 12px;
     background: rgb(255, 85, 0);
     color: white;
     text-decoration: none;
     border-radius: 5px;
-    font-size: 14px; /* <-- Letra de botón más pequeña */
+    font-size: 14px;
     width: 100%;
     box-sizing: border-box;
     text-align: center;
@@ -253,9 +259,6 @@
   }
 
   @media (max-width: 768px) {
-    /* El .popup ya está 'flex-start' gracias al cambio de escritorio, 
-       así que no necesitamos repetirlo aquí. */
-
     .popup-content {
       flex-direction: column;
       align-items: center;
@@ -274,14 +277,20 @@
     .popup-content .section:last-child {
       border-bottom: none;
     }
+    
+    /* En móvil, reseteamos el flex-grow */
+    .popup-content .features {
+      flex-grow: 0;
+      margin-top: 10px;
+    }
 
     .popup-content img {
-      height: 70px; /* Un poco más grande en móvil está bien */
+      height: 70px;
     }
 
     .popup-content h2 {
       font-size: 16px;
-      min-height: 0; /* Reseteamos la altura mínima en móvil */
+      min-height: 0;
     }
 
     .popup-content p {
@@ -294,7 +303,6 @@
     }
   }
 </style>
-
 <style>
             .whatsapp-button {
                 width: 60px;
@@ -1715,63 +1723,67 @@
                                 <a href="https://wa.me/584145830821?text=Hola!%20Quiero%20más%20información%20de%20MagistvOficial" class="whatsapp-button" target="_blank">
                                     <i class="fab fa-whatsapp"></i>
                                 </a>
-                                <div class="popup" id="popup">
-                                    <div class="popup-content">
-                                        <button class="close-btn" onclick="closePopup()">X</button>
-                                        <div class="section" style="border-right: 2px solid #000;">
-                                            <img src="https://giftcardoferta.com/tienda/wp-content/uploads/2024/05/flujo-tv.png" alt="FLUJOTV">
-                                            <br>
-                                            <br>
-                                            <h2>FLUJOTV</h2>
-                                            <p>1. Ofrece mas de 1100 canales en vivo</p>
-                                            <p>2. Optimizacion de los canales en vivo para una CARGA RAPIDA</p>
-                                            <p>3. Demo de 1 hora disponible</p>
-                                            <a href="https://telelatinomax.shop/" class="btn">IR A FLUJOTV</a>
-                                            <a href="https://telelatinomax.shop/#instalar-app" class="btn">DESCARGA FLUJOTV</a>
-                                            <a href="https://wa.link/1db2yq" class="btn">RESELLER FLUJOTV</a>
-                                        </div>
-                                        <div class="section">
-                                            <img src=" https://magistvpro.shop/wp-content/uploads/2025/06/MGS.png" alt="MAGISPRO">
-                                            <br>
-                                            <br>
-                                            <h2>MAGIS TV PRO</h2>
-                                            <p>1. Ofrece mas de 1300 canales en vivo</p>
-                                            <p>2. Optimizacion de Videos, Series y peliculas con diversos REPRODUCTORES</p>
-                                            <p>3. Demo de 24 horas disponible</p>
-                                            <a href="https://magistvpro.shop/" class="btn">IR A MAGISPRO</a>
-                                            <a href="https://magistvpro.shop/descargar/" class="btn">DESCARGA MAGISPRO</a>
-                                            <a href="https://magistvpro.shop/reventa/" class="btn">RESELLER MAGISPRO</a>
-                                        </div>
-                                        <div class="section">
-                                            <img src="https://telelatinoapks.com/wp-content/uploads/2025/02/cropped-Red-Minimalist-Internet-Logo-270x270.webp" alt="TELELATINO">
-                                            <h2>TELELATINO</h2>
-                                            <p>1. Ofrece mas de 1100 canales en vivo</p>
-                                            <p>2. Optimizacion de los canales en vivo para una CARGA RAPIDA</p>
-                                            <p>3. Demo de 1 hora disponible</p>
-                                            <a href="https://telelatinomax.shop/" class="btn">IR A TELELATINO</a>
-                                            <a href="https://telelatinomax.shop/#instalar-app" class="btn">DESCARGA TELELATINO</a>
-                                            <a href="https://wa.link/1db2yq" class="btn">RESELLER TELELATINO</a>
-                                        </div>                                       
-                                    </div>
-                                </div>
-                                <script>
-                                    function closePopup() {
-                                        document.getElementById('popup').style.display = 'none';
-                                    }
-                                </script>
-                                <script>
-                                    window.addEventListener('load', function() {
-                                        document.body.classList.add('no-scroll');
-                                        // bloquea el scroll
+                                
+<div class="popup" id="popup">
+    <div class="popup-content">
+        <button class="close-btn" id="closePopupBtn">X</button> <div class="section">
+            <img src="https://giftcardoferta.com/tienda/wp-content/uploads/2024/05/flujo-tv.png" alt="FLUJOTV">
+            <h2>FLUJOTV</h2>
+            <div class="features">
+                <p>1. Ofrece mas de 1100 canales en vivo</p>
+                <p>2. Optimizacion de los canales en vivo para una CARGA RAPIDA</p>
+                <p>3. Demo de 1 hora disponible</p>
+            </div>
+            <a href="https://telelatinomax.shop/" class="btn">IR A FLUJOTV</a>
+            <a href="https://telelatinomax.shop/#instalar-app" class="btn">DESCARGA FLUJOTV</a>
+            <a href="https://wa.link/1db2yq" class="btn">RESELLER FLUJOTV</a>
+        </div>
+        
+        <div class="section">
+            <img src=" https://magistvpro.shop/wp-content/uploads/2025/06/MGS.png" alt="MAGISPRO">
+            <h2>MAGIS TV PRO</h2>
+            <div class="features">
+                <p>1. Ofrece mas de 1300 canales en vivo</p>
+                <p>2. Optimizacion de Videos, Series y peliculas con diversos REPRODUCTORES</p>
+                <p>3. Demo de 24 horas disponible</p>
+            </div>
+            <a href="https://magistvpro.shop/" class="btn">IR A MAGISPRO</a>
+            <a href="https://magistvpro.shop/descargar/" class="btn">DESCARGA MAGISPRO</a>
+            <a href="https://magistvpro.shop/reventa/" class="btn">RESELLER MAGISPRO</a>
+        </div>
+        
+        <div class="section">
+            <img src="https://telelatinoapks.com/wp-content/uploads/2025/02/cropped-Red-Minimalist-Internet-Logo-270x270.webp" alt="TELELATINO">
+            <h2>TELELATINO</h2>
+            <div class="features">
+                <p>1. Ofrece mas de 1100 canales en vivo</p>
+                <p>2. Optimizacion de los canales en vivo para una CARGA RAPIDA</p>
+                <p>3. Demo de 1 hora disponible</p>
+            </div>
+            <a href="https://telelatinomax.shop/" class="btn">IR A TELELATINO</a>
+            <a href="https://telelatinomax.shop/#instalar-app" class="btn">DESCARGA TELELATINO</a>
+            <a href="https://wa.link/1db2yq" class="btn">RESELLER TELELATINO</a>
+        </div>
+    </div>
+</div>
 
-                                        // Si usas un botón para cerrar el popup, quita la clase al cerrarlo:
-                                        document.querySelector('.close-btn').addEventListener('click', function() {
-                                            document.querySelector('.popup').style.display = 'none';
-                                            document.body.classList.remove('no-scroll');
-                                            // vuelve a permitir scroll
-                                        });
-                                    });
-                                </script>
-    </body>
+<script>
+    // Espera a que toda la página cargue
+    window.addEventListener('load', function() {
+        const popup = document.getElementById('popup');
+        const closeBtn = document.getElementById('closePopupBtn');
+        
+        // 1. Bloquea el scroll del body
+        document.body.classList.add('no-scroll');
+
+        // 2. Escucha el clic en el botón de cerrar
+        closeBtn.addEventListener('click', function() {
+            popup.style.display = 'none';
+            document.body.classList.remove('no-scroll'); // Devuelve el scroll
+        });
+    });
+</script>
+
+</body>
     <!-- Mirrored from tvmagis.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Fri, 23 Aug 2024 07:28:45 GMT -->
 </html>
