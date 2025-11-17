@@ -858,6 +858,83 @@
                 //});
             }
             ;</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.querySelector('.elementor-menu-toggle');
+    const dropdownMenu = document.querySelector('.elementor-nav-menu--dropdown');
+    
+    if (menuToggle && dropdownMenu) {
+        menuToggle.addEventListener('click', function() {
+            const isExpanded = this.getAttribute('aria-expanded') === 'true';
+            
+            // Toggle aria-expanded attribute
+            this.setAttribute('aria-expanded', !isExpanded);
+            
+            // Toggle dropdown menu visibility
+            dropdownMenu.setAttribute('aria-hidden', isExpanded);
+            
+            // Toggle active class for styling if needed
+            this.classList.toggle('elementor-active');
+            dropdownMenu.classList.toggle('elementor-nav-menu--dropdown-visible');
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!menuToggle.contains(event.target) && !dropdownMenu.contains(event.target)) {
+                menuToggle.setAttribute('aria-expanded', 'false');
+                dropdownMenu.setAttribute('aria-hidden', 'true');
+                menuToggle.classList.remove('elementor-active');
+                dropdownMenu.classList.remove('elementor-nav-menu--dropdown-visible');
+            }
+        });
+
+        // Close menu when clicking on menu links
+        const dropdownLinks = dropdownMenu.querySelectorAll('a');
+        dropdownLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                menuToggle.setAttribute('aria-expanded', 'false');
+                dropdownMenu.setAttribute('aria-hidden', 'true');
+                menuToggle.classList.remove('elementor-active');
+                dropdownMenu.classList.remove('elementor-nav-menu--dropdown-visible');
+            });
+        });
+    }
+});
+</script>
+
+<style>
+.elementor-nav-menu--dropdown {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+    min-width: 200px;
+}
+
+.elementor-nav-menu--dropdown-visible {
+    display: block !important;
+}
+
+.elementor-menu-toggle.elementor-active .elementor-menu-toggle__icon--open {
+    display: none;
+}
+
+.elementor-menu-toggle:not(.elementor-active) .elementor-menu-toggle__icon--close {
+    display: none;
+}
+
+/* Asegurar que el menú desplegable sea visible cuando esté activo */
+.elementor-nav-menu--dropdown[aria-hidden="false"] {
+    display: block;
+}
+</style>
+
+
+
         <style id="wp-custom-css">
             .main-bar {
                 background: black !important;
@@ -898,6 +975,9 @@
                             </div>
                         </div>
                     </div>
+
+
+                    
                     <div class="elementor-column elementor-col-50 elementor-top-column elementor-element elementor-element-7e185eb4" data-id="7e185eb4" data-element_type="column">
                         <div class="elementor-widget-wrap elementor-element-populated">
                             <div class="elementor-element elementor-element-84f03ac elementor-nav-menu__align-right elementor-nav-menu--stretch elementor-widget__width-initial elementor-widget-mobile__width-initial elementor-nav-menu--dropdown-tablet elementor-nav-menu__text-align-aside elementor-nav-menu--toggle elementor-nav-menu--burger elementor-widget elementor-widget-nav-menu" data-id="84f03ac" data-element_type="widget" data-settings="{&quot;full_width&quot;:&quot;stretch&quot;,&quot;layout&quot;:&quot;horizontal&quot;,&quot;submenu_icon&quot;:{&quot;value&quot;:&quot;&lt;i class=\&quot;fas fa-caret-down\&quot;&gt;&lt;\/i&gt;&quot;,&quot;library&quot;:&quot;fa-solid&quot;},&quot;toggle&quot;:&quot;burger&quot;}" data-widget_type="nav-menu.default">
@@ -931,6 +1011,7 @@
                                             </li>
                                             <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-415">
                                                 <a href="demo/index.html" class="elementor-item" tabindex="-1">Prueba gratis</a>
+                                                </li>
                                             </li>
                                         </ul>
                                     </nav>
@@ -941,8 +1022,12 @@
                 </div>
             </header>
         </header>
+
+
+
+
         <div data-elementor-type="wp-page" data-elementor-id="2" class="elementor elementor-2" data-elementor-post-type="page">
-            <section class="elementor-section elementor-top-section elementor-element elementor-element-b2b67e0 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="b2b67e0" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;video&quot;,&quot;background_video_link&quot;:&quot;https:\/\/tvmagis.info\/wp-content\/uploads\/2023\/07\/TV-Magis-backgroud.mp4&quot;,&quot;background_play_on_mobile&quot;:&quot;yes&quot;}">
+            <section class="elementor-section elementor-top-section elementor-element elementor-element-b2b67e0 elementor-section-full_width elementor-section-height-default elementor-section-height-default" data-id="b2b67e0" data-element_type="section" data-settings="{&quot;background_background&quot;:&quot;video&quot;,&quot;background_video_link&quot;:&quot;&quot;,&quot;background_play_on_mobile&quot;:&quot;yes&quot;}">
                 <div class="elementor-background-video-container">
                     <video class="elementor-background-video-hosted elementor-html5-video" autoplay muted playsinline loop></video>
                 </div>
@@ -1737,22 +1822,22 @@
                 <p>2. Optimizacion de los canales en vivo para una CARGA RAPIDA</p>
                 <p>3. Demo de 1 hora disponible</p>
             </div>
-            <a href="https://telelatinomax.shop/" class="btn">IR A FLUJOTV</a>
-            <a href="https://telelatinomax.shop/#instalar-app" class="btn">DESCARGA FLUJOTV</a>
-            <a href="https://wa.link/1db2yq" class="btn">RESELLER FLUJOTV</a>
+            <a href="https://wa.me/584145830821?text=Hola%20estoy%20interesado%20en%20Informacion%20de%20Flujo%20TV" class="btn">IR A FLUJOTV</a>
+            <a href="https://wa.me/584145830821?text=Hola%20podrias%20enviarme%20el%20link%20de%20descarga%20de%20Flujo%20TV" class="btn">DESCARGA FLUJOTV</a>
+            <a href="https://wa.me/584145830821?text=Hola%20estoy%20interesado%20en%20ser%20reseller%20de%20Flujo%20TV" class="btn">RESELLER FLUJOTV</a>
         </div>
         
         <div class="section">
-            <img src="https://giftcardoferta.com/tienda/wp-content/uploads/2024/05/flujo-tv.png" alt="FLUJOTV">
+            <img src="	https://www.clinicasyhospitales.com/content/uc/3216-products-20210105205517.png" alt="FLUJOTV">
             <h2>MAGIS TV PRO</h2>
             <div class="features">
                 <p>1. Ofrece mas de 1300 canales en vivo</p>
                 <p>2. Optimizacion de Videos, Series y peliculas con diversos REPRODUCTORES</p>
                 <p>3. Demo de 24 horas disponible</p>
             </div>
-            <a href="https://telelatinomax.shop/" class="btn">IR A FLUJOTV</a>
-            <a href="https://telelatinomax.shop/#instalar-app" class="btn">DESCARGA FLUJOTV</a>
-            <a href="https://wa.link/1db2yq" class="btn">RESELLER FLUJOTV</a>
+            <a href="https://magistvpro.shop/" class="btn">IR A MAGIS</a>
+            <a href="https://magistvpro.shop/descargar/" class="btn">DESCARGA MAGIS</a>
+            <a href="https://magistvpro.shop/reventa/" class="btn">RESELLER MAGIS</a>
         </div>
         
         <div class="section">
