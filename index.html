@@ -757,6 +757,7 @@
                 font-size: 1.5em;
                 line-height: 1.6;
             }
+            
         </style>
         <link rel='stylesheet' id='wp-blog-designer-fontawesome-stylesheets-css' href='wp-content/plugins/blog-designer/admin/css/fontawesome-all.min5152.css' media='all'/>
         <link rel='stylesheet' id='wp-blog-designer-css-stylesheets-css' href='wp-content/plugins/blog-designer/public/css/designer_css5152.css' media='all'/>
@@ -1035,6 +1036,18 @@ document.addEventListener('DOMContentLoaded', function() {
       height: auto !important; /* 'auto' mantiene la proporción para que no se distorsione */
       max-width: none !important; /* Quita cualquier límite de ancho */
   }
+
+/* --- AGRANDAR IMAGEN "COMPARA" --- */
+  
+  /* Usamos el data-id="ce4f93e" del widget de esa imagen */
+  [data-id="ce4f93e"] img {
+    width: 100% !important;  /* Hace que la imagen ocupe todo el ancho */
+    height: auto !important; /* Mantiene la proporción correcta */
+    max-width: 100% !important; /* Asegura que no se desborde */
+  }
+
+
+
 </style>
 
 
@@ -1386,7 +1399,7 @@ document.addEventListener('DOMContentLoaded', function() {
                                                     </div>
                                                     <div class="elementor-element elementor-element-ce4f93e elementor-widget elementor-widget-image" data-id="ce4f93e" data-element_type="widget" data-widget_type="image.default">
                                                         <div class="elementor-widget-container">
-                                                            <img decoding="async" width="580" height="323" src="wp-content/uploads/2023/07/0.webp" class="attachment-large size-large wp-image-292" alt="" srcset="https://oleadatv.lat/wp-content/uploads/2023/07/0.webp 658w, https://oleadatv.lat/wp-content/uploads/2023/07/0.webp 600w, https://oleadatv.lat/wp-content/uploads/2023/07/0.webp 300w" sizes="(max-width: 580px) 100vw, 580px"/>
+                                                            <img decoding="async" width="580" height="323" src="wp-content/uploads/2023/07/0.webp" class="attachment-large size-large wp-image-292" alt="" srcset="https://oleadatv.lat/wp-content/uploads/2023/07/0.webp 658w, https://oleadatv.lat/wp-content/uploads/2023/07/0.webp 600w, https://oleadatv.lat/wp-content/uploads/2023/07/0.webp 300w" sizes="(max-width: 880px) 100vw, 580px"/>
                                                         </div>
                                                     </div>
                                                 </div>
